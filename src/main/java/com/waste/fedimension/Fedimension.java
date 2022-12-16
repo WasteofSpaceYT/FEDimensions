@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class Fedimension {
 
     // Directly reference a log4j logger.
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "fedimension";
 
     public Fedimension() {
@@ -75,7 +75,6 @@ public class Fedimension {
     public void onServerStarting(FMLServerStartingEvent event) {
         // do something when the server starts
         LOGGER.info("HELLO from server starting");
-        event.getServer().getCommandManager().getDispatcher().register(CreateDimensions.register(event.getServer().getFunctionManager().getCommandDispatcher()));
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD

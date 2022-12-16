@@ -1,0 +1,16 @@
+{
+  "type": "fedimenison:new_dimension",
+  "generator": {
+    "type": "minecraft:flat",
+    "seed": -2048856837,
+    "settings": {
+      "layers": []
+    },
+    "biome_source": {
+      "type": "minecraft:vanilla_layered",
+      "seed": -2048856837,
+      "large_biomes": false,
+      "legacy_biome_init_layer": false
+    }
+  }
+}
