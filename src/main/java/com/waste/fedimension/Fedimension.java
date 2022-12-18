@@ -1,6 +1,5 @@
 package com.waste.fedimension;
 
-import com.waste.fedimension.Commands.CreateDimensions;
 import com.waste.fedimension.Items.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
