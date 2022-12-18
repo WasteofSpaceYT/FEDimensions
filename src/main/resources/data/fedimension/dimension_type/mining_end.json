@@ -3,14 +3,14 @@
   "ultrawarm": false,
   "natural": true,
   "piglin_safe": false,
-  "respawn_anchor_works": false,
-  "bed_works": true,
-  "has_raids": true,
-  "has_skylight": true,
+  "respawn_anchor_works": true,
+  "bed_works": false,
+  "has_raids": false,
+  "has_skylight": false,
   "has_ceiling": false,
   "coordinate_scale": 1,
   "ambient_light": 0,
   "logical_height": 256,
-  "effects": "minecraft:overworld",
-  "infiniburn": "minecraft:infiniburn_overworld"
+  "effects": "minecraft:the_end",
+  "infiniburn": "minecraft:infiniburn_end"
 }

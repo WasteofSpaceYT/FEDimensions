@@ -1,13 +1,13 @@
 {
-  "type": "fedimension:new_dimension",
+  "type": "fedimension:mining_nether",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "minecraft:plains",
+      "biome": "minecraft:nether_wastes",
       "lakes": false,
       "features": true,
       "layers": [{
-        "block": "minecraft:stone",
+        "block": "minecraft:netherrack",
         "height": 1
       },
         {
@@ -16,7 +16,7 @@
         },
         {
           "height": 50,
-            "block": "minecraft:stone"
+            "block": "minecraft:netherrack"
         }],
       "biome_source": {
         "type": "minecraft:vanilla_layered",

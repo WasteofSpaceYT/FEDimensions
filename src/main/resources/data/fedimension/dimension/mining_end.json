@@ -1,22 +1,18 @@
 {
-  "type": "fedimension:new_dimension",
+  "type": "fedimension:mining_end",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
-      "biome": "minecraft:plains",
+      "biome": "minecraft:end_midlands",
       "lakes": false,
       "features": true,
       "layers": [{
-        "block": "minecraft:stone",
+        "block": "minecraft:end_stone",
         "height": 1
       },
         {
-          "block": "minecraft:bedrock",
-            "height": 0
-        },
-        {
           "height": 50,
-            "block": "minecraft:stone"
+            "block": "minecraft:end_stone"
         }],
       "biome_source": {
         "type": "minecraft:vanilla_layered",
