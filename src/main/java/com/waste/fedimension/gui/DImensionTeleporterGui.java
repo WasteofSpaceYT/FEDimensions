@@ -14,7 +14,11 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.common.Mod;
+
+import static com.waste.fedimension.world.DimensionTeleporter.dimTeleport;
 
 public class DImensionTeleporterGui extends Screen {
 
@@ -31,71 +35,21 @@ public class DImensionTeleporterGui extends Screen {
         this.player = playerIn;
         this.hand = handIn;
     }
+    @OnlyIn(Dist.CLIENT)
 
-    public void dimTeleport(String dimension){
-        Fedimension.LOGGER.info("onUse");
-        if (!world.isRemote()) {
-            if (!player.isCrouching()) {
-                MinecraftServer server = player.getServer();
-
-                if (server != null) {
-                    /*if (world.getDimensionKey() == ModDimensions.END_DIM) {
-                        ServerWorld overWorld = server.getWorld(World.OVERWORLD);
-                        if (overWorld != null) {
-                            player.changeDimension(overWorld, new DimensionTeleporter(player.getPosition(), false));
-                        }
-                    } else {
-                        ServerWorld newDim = server.getWorld(ModDimensions.END_DIM);
-                        if (newDim != null) {
-                            player.changeDimension(newDim, new DimensionTeleporter(player.getPosition(), true));
-                        }
-                    }*/
-                    switch(dimension){
-                        case "overworld":
-                            ServerWorld overWorld = server.getWorld(World.OVERWORLD);
-                            overWorld.getGameRules().get(GameRules.DO_MOB_SPAWNING).set(false, server);
-                            if (overWorld != null) {
-                                player.changeDimension(overWorld, new DimensionTeleporter(player.getPosition(), false));
-                            }
-                            break;
-                        case "nether":
-                            ServerWorld netherWorld = server.getWorld(ModDimensions.NETHER_DIM);
-                            netherWorld.getGameRules().get(GameRules.DO_MOB_SPAWNING).set(false, server);
-                            if (netherWorld != null) {
-                                player.changeDimension(netherWorld, new DimensionTeleporter(player.getPosition(), false));
-                            }
-                            break;
-                        case "end":
-                            ServerWorld endWorld = server.getWorld(ModDimensions.END_DIM);
-                            if (endWorld != null) {
-                                player.changeDimension(endWorld, new DimensionTeleporter(player.getPosition(), false));
-                            }
-                            break;
-                        case "superflat":
-                            ServerWorld superflatWorld = server.getWorld(ModDimensions.NEW_DIM);
-                            superflatWorld.getGameRules().get(GameRules.DO_MOB_SPAWNING).set(false, server);
-                            if (superflatWorld != null) {
-                                player.changeDimension(superflatWorld, new DimensionTeleporter(player.getPosition(), false));
-                            }
-                            break;
-                    }
-                }
-            }
-        }
-    }
 
     public void init() {
         this.addButton(new Button(this.width / 2 - 51, this.height / 4 + 24 + -50, 102, 20, ITextComponent.getTextComponentOrEmpty("Overworld"), (button) -> {
-            dimTeleport("overworld");
+            dimTeleport("overworld", player, world);
         }));
         this.addButton(new Button(this.width / 2 - 51, this.height / 4 + 24 + -25, 102, 20, ITextComponent.getTextComponentOrEmpty("Nether"), (button) -> {
-            dimTeleport("nether");
+            dimTeleport("nether", player, world);
         }));
         this.addButton(new Button(this.width / 2 - 51, this.height / 4 + 24, 102, 20, ITextComponent.getTextComponentOrEmpty("End"), (button) -> {
-            dimTeleport("end");
+            dimTeleport("end", player, world);
         }));
         this.addButton(new Button(this.width / 2 - 51, this.height / 4 + 24 + +25, 102, 20, ITextComponent.getTextComponentOrEmpty("Superflat"), (button) -> {
-            dimTeleport("superflat");
+            dimTeleport("superflat", player, world);
         }));
         /*this.addDrawableChild(new ButtonWidget(this.width / 2 - 204, this.height / 4 + 24 + -25, 102, 20, Text.translatable("FlyHack: " + (Hacks.FlyHackEnabled ? "On" : "Off")), (button) -> {
             Hacks.FlyHackEnabled = !Hacks.FlyHackEnabled;

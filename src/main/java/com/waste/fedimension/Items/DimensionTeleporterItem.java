@@ -14,6 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldSettings;
 import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -28,7 +29,6 @@ public class DimensionTeleporterItem extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn){
         Minecraft.getInstance().displayGuiScreen(new DImensionTeleporterGui(worldIn, playerIn, handIn));
-
 
 
         return ActionResult.resultPass(playerIn.getHeldItem(handIn));
